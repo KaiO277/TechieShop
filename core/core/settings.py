@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
     'api',
 ]
 
@@ -54,7 +56,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'rest_framework_api_key.authentication.ClientIdHeaderAuthentication',
+    ),
+    # "DEFAULT_PERMISSION_CLASSES": [
+    #     "rest_framework_api_key.permissions.HasAPIKey",
+    # ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100,
+}
 
 ROOT_URLCONF = 'core.urls'
 
@@ -91,6 +106,11 @@ DATABASES = {
     }
 }
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'  # URL để truy cập media files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
