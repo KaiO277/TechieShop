@@ -6,7 +6,6 @@
 # Node artifact files
 node_modules/
 dist/
-./venv
 
 # Compiled Java class files
 *.class
@@ -50,7 +49,7 @@ Thumbs.db
 *.wmv
 
 # ================================
-
+venv
 **/__pycache__/
 
 # /core
@@ -59,3 +58,11 @@ core/static
 core/media
 core/protected
 core/*/migrations/
+# /core/third_party
+
+venv/
+**/venv/
+
+
+
+
