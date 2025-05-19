@@ -10,4 +10,5 @@ categories_get_all_api = CategoriesMVS.as_view({
 
 urlpatterns = [
     path('categories_get_all_api/', categories_get_all_api, name='categories_get_all_api'),
+    
 ]

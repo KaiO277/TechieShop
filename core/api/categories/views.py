@@ -27,3 +27,4 @@ class CategoriesMVS(viewsets.ModelViewSet):
         queryset = Category.objects.all()
         serializers = self.serializer_class(queryset, many=True)
         return Response(serializers.data, status=status.HTTP_200_OK)
+    

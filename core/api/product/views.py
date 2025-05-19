@@ -28,3 +28,9 @@ class ProductsMVS(viewsets.ModelViewSet):
         queryset = Product.objects.all()
         serializers = self.serializer_class(queryset, many=True)
         return Response(serializers.data, status=status.HTTP_200_OK)
+    
+    @action(methods=['GET'], detail=False, url_name='top_expensive_products', url_path='top_expensive_products')
+    def top_expensive_products(self, request, *args, **kwargs):
+        top_products = Product.objects.order_by('-price_new')[:4]
+        serializer = self.serializer_class(top_products, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
