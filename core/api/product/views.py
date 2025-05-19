@@ -15,3 +15,16 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from api.models import *
 from .serializers import *
 from api import status_http
+
+class ProductsMVS(viewsets.ModelViewSet):
+    serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        queryset = Product.objects.all()
+        return queryset
+
+    @action(methods=['GET'], detail=False, url_name='products_get_all_api', url_path='products_get_all_api')
+    def products_get_all_api(self, request, *args, **kwargs):
+        queryset = Product.objects.all()
+        serializers = self.serializer_class(queryset, many=True)
+        return Response(serializers.data, status=status.HTTP_200_OK)

@@ -1,13 +1,15 @@
 from rest_framework import serializers
 from api.models import *
 from api.submodels import *
+from api.product.serializers import ProductSerializer
 
 class CategorySerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(required=False)
+    products = ProductSerializer(many=True, read_only=True)
 
     class Meta:
         model = Category
-        fields = ['id', 'name', 'image']
+        fields = ['id', 'name', 'image', 'products']
 
     def add(self, request):
         try:

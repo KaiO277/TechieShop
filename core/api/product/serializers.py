@@ -7,7 +7,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ['id', 'name', 'image', 'cate', 'price_new', 'price_old', 'rate','review']
 
     def add(self, request):
         try:
