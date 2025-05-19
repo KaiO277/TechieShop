@@ -1,6 +1,6 @@
 # 🌟 TechieShop API
 
-Dự án **TechieShop API** cung cấp backend cho nền tảng hỗ trợ cộng đồng TechieShop. Dự án được xây dựng với Django và REST framework, phục vụ mục tiêu kết nối những người cần giúp đỡ với các tổ chức và cá nhân thiện nguyện.
+Dự án **TechieShop API** cung cấp backend cho nền tảng hỗ trợ cộng đồng TechieShop. Dự án được xây dựng với Django và REST framework, phục vụ mục tiêu bán hàng điện tử.
 
 ---
 
